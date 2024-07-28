@@ -92,8 +92,7 @@ namespace SimplePrintServer
                 return;
             }
 
-            string html = @"<h1>Test Page</h1> <p>This is sample test print created to test the connection of the computer and printer.</p>";
-            printerManager.PrintHtml(Properties.Settings.Default.SelectedPrinterId, html);
+            printerManager.PrintTestDoc(Properties.Settings.Default.SelectedPrinterId);
         }
 
         private void LoadPageOrientionModifier()

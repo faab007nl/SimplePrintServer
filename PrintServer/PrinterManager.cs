@@ -1,12 +1,8 @@
-﻿using System.Management;
-using System.Diagnostics;
-using System.Reflection;
+﻿using System.Diagnostics;
+using System.Drawing.Printing;
+using System.Management;
+using System.Threading;
 using SimplePrintServer.Models;
-using IronPdf;
-using IronPdf.Rendering;
-using IronSoftware;
-using IronPdf.Pages;
-using System.Windows.Forms;
 
 namespace SimplePrintServer
 {
@@ -53,43 +49,27 @@ namespace SimplePrintServer
             return null;
         }
 
-        public void PrintHtml(string printerId, string html)
+        public void PrintTestDoc(string printerId)
         {
-            var renderer = new ChromePdfRenderer();
-            var doc = renderer.RenderHtmlAsPdf(html);
-
-            _ = doc.Print(printerId);
+            var pdfPath = "Resources\\label-test-file.pdf";
+            Process print = new Process();
+            print.StartInfo.FileName = "Libraries\\sumatrapdf.exe";
+            print.StartInfo.UseShellExecute = true;
+            print.StartInfo.CreateNoWindow = true;
+            print.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            print.StartInfo.Arguments = "-print-to \"" + printerId + "\" -exit-when-done \"" + pdfPath + "\"";
+            print.Start();
         }
 
         public void PrintPdfFromFile(string printerId, string pdfPath)
         {
-            int selectedPageOrientionModifierIndex = Properties.Settings.Default.PageOrientionModifier;
-            PdfPageRotation selectedPageOrientionModifier = PdfPageRotation.None;
-            switch (selectedPageOrientionModifierIndex)
-            {
-                case 0:
-                    selectedPageOrientionModifier = PdfPageRotation.None;
-                    break;
-                case 1:
-                    selectedPageOrientionModifier = PdfPageRotation.Clockwise90;
-                    break;
-                case 2:
-                    selectedPageOrientionModifier = PdfPageRotation.Clockwise180;
-                    break;
-                case 3:
-                    selectedPageOrientionModifier = PdfPageRotation.Clockwise270;
-                    break;
-                default:
-                    selectedPageOrientionModifier = PdfPageRotation.None;
-                    break;
-            }
-
-            var doc = PdfDocument.FromFile(pdfPath);
-            foreach (PdfPage page in doc.Pages)
-            {
-                page.PageRotation = selectedPageOrientionModifier;
-            }
-            _ = doc.Print(printerId);
+            Process print = new Process();
+            print.StartInfo.FileName = "Libraries\\sumatrapdf.exe";
+            print.StartInfo.UseShellExecute = true;
+            print.StartInfo.CreateNoWindow = true;
+            print.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            print.StartInfo.Arguments = "-print-to \"" + printerId + "\" -exit-when-done \"" + pdfPath + "\"";
+            print.Start();
         }
 
     }

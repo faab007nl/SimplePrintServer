@@ -95,12 +95,25 @@ namespace SimplePrintServer
                 var formData = ctx.Request.InputStream;
                 var encoding = ctx.Request.ContentEncoding;
                 var reader = new System.IO.StreamReader(formData, encoding);
-                string base64data = reader.ReadToEnd();
 
+                string base64data = reader.ReadToEnd();
                 if (base64data.Length == 0)
                 {
                     resp.StatusCode = (int)HttpStatusCode.NoContent;
                     string errResponse = "{\"status\": \"No data provided\"}";
+                    byte[] errBuffer = Encoding.UTF8.GetBytes(errResponse);
+
+                    resp.ContentLength64 = errBuffer.Length;
+                    resp.OutputStream.Write(errBuffer, 0, errBuffer.Length);
+                    return;
+                }
+
+                var printerId = Properties.Settings.Default.SelectedPrinterId;
+                Debug.WriteLine($"Selected printer: {printerId}");
+                if (printerId == null || printerId.Length == 0)
+                {
+                    resp.StatusCode = (int)HttpStatusCode.NoContent;
+                    string errResponse = "{\"status\": \"No printer selected\"}";
                     byte[] errBuffer = Encoding.UTF8.GetBytes(errResponse);
 
                     resp.ContentLength64 = errBuffer.Length;
@@ -114,18 +127,6 @@ namespace SimplePrintServer
                 string filePath = "temp/document.pdf";
                 File.WriteAllBytes(filePath, fileBytes);
                 Debug.WriteLine($"File saved to {filePath}");
-
-                var printerId = Properties.Settings.Default.SelectedPrinterId;
-                if (printerId == null)
-                {
-                    resp.StatusCode = (int)HttpStatusCode.NoContent;
-                    string errResponse = "{\"status\": \"No printer selected\"}";
-                    byte[] errBuffer = Encoding.UTF8.GetBytes(errResponse);
-
-                    resp.ContentLength64 = errBuffer.Length;
-                    resp.OutputStream.Write(errBuffer, 0, errBuffer.Length);
-                    return;
-                }
 
                 this.printerManager.PrintPdfFromFile(Properties.Settings.Default.SelectedPrinterId, filePath);
 
