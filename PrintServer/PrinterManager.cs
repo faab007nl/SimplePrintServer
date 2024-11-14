@@ -57,7 +57,7 @@ namespace SimplePrintServer
             print.StartInfo.UseShellExecute = true;
             print.StartInfo.CreateNoWindow = true;
             print.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            print.StartInfo.Arguments = "-print-to \"" + printerId + "\" -exit-when-done \"" + pdfPath + "\"";
+            print.StartInfo.Arguments = "-print-to \"" + printerId + "\" -print-settings \"noscale,paper=A6\" -exit-when-done \"" + pdfPath + "\"";
             print.Start();
         }
 
@@ -68,7 +68,7 @@ namespace SimplePrintServer
             print.StartInfo.UseShellExecute = true;
             print.StartInfo.CreateNoWindow = true;
             print.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            print.StartInfo.Arguments = "-print-to \"" + printerId + "\" -exit-when-done \"" + pdfPath + "\"";
+            print.StartInfo.Arguments = "-print-to \"" + printerId + "\" -print-settings \"noscale,paper=A6\" -exit-when-done \"" + pdfPath + "\"";
             print.Start();
         }
 
