@@ -34,6 +34,18 @@ namespace SimplePrintServer.Properties {
                 this["SelectedPrinterId"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SelectedPaperSize {
+            get {
+                return ((string)(this["SelectedPaperSize"]));
+            }
+            set {
+                this["SelectedPaperSize"] = value;
+            }
+        }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -23,145 +23,173 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            PrinterListInput = new ComboBox();
-            label1 = new Label();
-            label2 = new Label();
-            RefreshPrintersBtn = new Button();
-            CurrentPrinterLabel = new Label();
-            SaveBtn = new Button();
-            label3 = new Label();
-            printTestPageBtn = new Button();
-            pageOrientionModifierSelect = new ComboBox();
+            PrinterListInput = new System.Windows.Forms.ComboBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            RefreshPrintersBtn = new System.Windows.Forms.Button();
+            CurrentPrinterLabel = new System.Windows.Forms.Label();
+            SaveBtn = new System.Windows.Forms.Button();
+            printTestPageBtn = new System.Windows.Forms.Button();
+            pageOrientionModifierSelect = new System.Windows.Forms.ComboBox();
+            PrinterPaperSizesInput = new System.Windows.Forms.ComboBox();
+            CurrentPaperSizeLabel = new System.Windows.Forms.Label();
+            ErrorLabel = new System.Windows.Forms.Label();
             SuspendLayout();
-            // 
+            //
             // PrinterListInput
-            // 
-            PrinterListInput.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            //
+            PrinterListInput.Font = new System.Drawing.Font("Segoe UI", 9.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
             PrinterListInput.FormattingEnabled = true;
-            PrinterListInput.Location = new Point(16, 42);
+            PrinterListInput.Location = new System.Drawing.Point(16, 51);
             PrinterListInput.Name = "PrinterListInput";
-            PrinterListInput.Size = new Size(289, 29);
+            PrinterListInput.Size = new System.Drawing.Size(289, 29);
             PrinterListInput.TabIndex = 0;
-            // 
+            PrinterListInput.SelectedIndexChanged += PrinterListInput_SelectedIndexChanged;
+            //
             // label1
-            // 
+            //
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(11, 14);
+            label1.Font = new System.Drawing.Font("Segoe UI", 9.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
+            label1.Location = new System.Drawing.Point(11, 14);
             label1.Name = "label1";
-            label1.Size = new Size(207, 25);
+            label1.Size = new System.Drawing.Size(178, 21);
             label1.TabIndex = 2;
             label1.Text = "Select Default Printer:";
-            // 
+            //
             // label2
-            // 
+            //
             label2.AutoSize = true;
-            label2.Location = new Point(16, 151);
+            label2.Location = new System.Drawing.Point(16, 227);
             label2.Name = "label2";
-            label2.Size = new Size(147, 15);
+            label2.Size = new System.Drawing.Size(184, 20);
             label2.TabIndex = 3;
             label2.Text = "Page Orientation Modifier:";
-            // 
+            //
             // RefreshPrintersBtn
-            // 
-            RefreshPrintersBtn.Location = new Point(16, 77);
+            //
+            RefreshPrintersBtn.Location = new System.Drawing.Point(16, 117);
             RefreshPrintersBtn.Name = "RefreshPrintersBtn";
-            RefreshPrintersBtn.Size = new Size(81, 25);
+            RefreshPrintersBtn.Size = new System.Drawing.Size(81, 25);
             RefreshPrintersBtn.TabIndex = 4;
             RefreshPrintersBtn.Text = "Refresh List";
             RefreshPrintersBtn.UseVisualStyleBackColor = true;
             RefreshPrintersBtn.Click += RefreshPrintersBtn_Click;
-            // 
+            //
             // CurrentPrinterLabel
-            // 
+            //
             CurrentPrinterLabel.AutoSize = true;
-            CurrentPrinterLabel.Location = new Point(16, 110);
+            CurrentPrinterLabel.Location = new System.Drawing.Point(16, 175);
             CurrentPrinterLabel.Name = "CurrentPrinterLabel";
-            CurrentPrinterLabel.Size = new Size(118, 15);
+            CurrentPrinterLabel.Size = new System.Drawing.Size(144, 20);
             CurrentPrinterLabel.TabIndex = 5;
             CurrentPrinterLabel.Text = "Current Printer: none";
-            // 
+            //
             // SaveBtn
-            // 
-            SaveBtn.Location = new Point(224, 77);
+            //
+            SaveBtn.Location = new System.Drawing.Point(224, 117);
             SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(81, 25);
+            SaveBtn.Size = new System.Drawing.Size(81, 25);
             SaveBtn.TabIndex = 6;
             SaveBtn.Text = "Save";
             SaveBtn.UseVisualStyleBackColor = true;
             SaveBtn.Click += SaveBtn_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(16, 130);
-            label3.Name = "label3";
-            label3.Size = new Size(292, 15);
-            label3.TabIndex = 7;
-            label3.Text = "---------------------------------------------------------";
-            // 
+            //
             // printTestPageBtn
-            // 
-            printTestPageBtn.Location = new Point(16, 224);
+            //
+            printTestPageBtn.Location = new System.Drawing.Point(16, 285);
             printTestPageBtn.Name = "printTestPageBtn";
-            printTestPageBtn.Size = new Size(289, 53);
+            printTestPageBtn.Size = new System.Drawing.Size(289, 53);
             printTestPageBtn.TabIndex = 8;
             printTestPageBtn.Text = "Print Test Page";
             printTestPageBtn.UseVisualStyleBackColor = true;
             printTestPageBtn.Click += printTestPagePressed;
-            // 
+            //
             // pageOrientionModifierSelect
-            // 
-            pageOrientionModifierSelect.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            //
+            pageOrientionModifierSelect.Font = new System.Drawing.Font("Segoe UI", 9.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
             pageOrientionModifierSelect.FormattingEnabled = true;
             pageOrientionModifierSelect.Items.AddRange(new object[] { "None", "Rotate 90 deg", "Rotate 180 deg", "Rotate 270 deg" });
-            pageOrientionModifierSelect.Location = new Point(16, 169);
+            pageOrientionModifierSelect.Location = new System.Drawing.Point(16, 245);
             pageOrientionModifierSelect.Name = "pageOrientionModifierSelect";
-            pageOrientionModifierSelect.Size = new Size(289, 29);
+            pageOrientionModifierSelect.Size = new System.Drawing.Size(289, 29);
             pageOrientionModifierSelect.TabIndex = 9;
             pageOrientionModifierSelect.UseWaitCursor = true;
             pageOrientionModifierSelect.SelectedIndexChanged += pageOrientionModifierSelect_SelectedIndexChanged;
-            // 
+            //
+            // PrinterPaperSizesInput
+            //
+            PrinterPaperSizesInput.Enabled = false;
+            PrinterPaperSizesInput.Font = new System.Drawing.Font("Segoe UI", 9.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
+            PrinterPaperSizesInput.FormattingEnabled = true;
+            PrinterPaperSizesInput.Location = new System.Drawing.Point(16, 86);
+            PrinterPaperSizesInput.Name = "PrinterPaperSizesInput";
+            PrinterPaperSizesInput.Size = new System.Drawing.Size(289, 21);
+            PrinterPaperSizesInput.TabIndex = 10;
+            //
+            // CurrentPaperSizeLabel
+            //
+            CurrentPaperSizeLabel.AutoSize = true;
+            CurrentPaperSizeLabel.Location = new System.Drawing.Point(16, 195);
+            CurrentPaperSizeLabel.Name = "CurrentPaperSizeLabel";
+            CurrentPaperSizeLabel.Size = new System.Drawing.Size(169, 20);
+            CurrentPaperSizeLabel.TabIndex = 11;
+            CurrentPaperSizeLabel.Text = "Current Paper Size: none";
+            //
+            // ErrorLabel
+            //
+            ErrorLabel.AutoSize = true;
+            ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            ErrorLabel.Location = new System.Drawing.Point(16, 145);
+            ErrorLabel.Name = "ErrorLabel";
+            ErrorLabel.Size = new System.Drawing.Size(0, 20);
+            ErrorLabel.TabIndex = 12;
+            //
             // SettingsForm
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(323, 289);
+            //
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(337, 382);
+            Controls.Add(ErrorLabel);
+            Controls.Add(CurrentPaperSizeLabel);
+            Controls.Add(PrinterPaperSizesInput);
             Controls.Add(pageOrientionModifierSelect);
             Controls.Add(printTestPageBtn);
-            Controls.Add(label3);
             Controls.Add(SaveBtn);
             Controls.Add(CurrentPrinterLabel);
             Controls.Add(RefreshPrintersBtn);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(PrinterListInput);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "SettingsForm";
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Text = "Settings - Simple Print Server";
             FormClosing += SettingsForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
 
+        private System.Windows.Forms.Label ErrorLabel;
+
+        private System.Windows.Forms.Label CurrentPaperSizeLabel;
+
+        private System.Windows.Forms.ComboBox PrinterPaperSizesInput;
+
         #endregion
 
-        private ComboBox PrinterListInput;
+        private System.Windows.Forms.ComboBox PrinterListInput;
         private Label label1;
-        private Label label2;
-        private Button RefreshPrintersBtn;
-        private Label CurrentPrinterLabel;
-        private Button SaveBtn;
-        private Label label3;
-        private Button printTestPageBtn;
-        private ComboBox pageOrientionModifierSelect;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button RefreshPrintersBtn;
+        private System.Windows.Forms.Label CurrentPrinterLabel;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button printTestPageBtn;
+        private System.Windows.Forms.ComboBox pageOrientionModifierSelect;
     }
 }

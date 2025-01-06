@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimplePrintServer.Models
 {
-    public partial class Printer
+    public class Printer
     {
 
         public string Id { get; set; }
@@ -15,17 +15,9 @@ namespace SimplePrintServer.Models
         public bool IsDefault { get; set; }
         public bool IsLocalPrinter { get; set; }
         public bool IsNetworkPrinter { get; set; }
+        public List<String> PaperSizes { get; set; } = new List<string>();
 
         public string Label => GetLabel();
-
-        public Printer(string id, string name, bool isDefault, bool isLocalPrinter, bool isNetworkPrinter)
-        {
-            Id = id;
-            Name = name;
-            IsDefault = isDefault;
-            IsLocalPrinter = isLocalPrinter;
-            IsNetworkPrinter = isNetworkPrinter;
-        }
 
         public Printer(ManagementObject mo)
         {
@@ -34,6 +26,13 @@ namespace SimplePrintServer.Models
             IsDefault = (bool)mo.GetPropertyValue("Default");
             IsLocalPrinter = (bool)mo.GetPropertyValue("Local");
             IsNetworkPrinter = (bool)mo.GetPropertyValue("Network");
+            if (mo["PrinterPaperNames"] is string[] paperSizes)
+            {
+                foreach (string size in paperSizes)
+                {
+                    PaperSizes.Add(size);
+                }
+            }
         }
 
         public string GetLabel()
